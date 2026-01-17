@@ -2,127 +2,144 @@ nav {
     background-color: #0085FF;
     overflow: hidden;
     position: relative;
-
-    & a{
-        color: aliceblue;
-    }
-
-    .bars{
-        position: absolute;
-        top: 45px;
-        right: 20px;
-        color: aliceblue;
-    }
-
-    & .container {
-        max-width: 1170px;
-        margin: 0 auto;
-    }
-
-    & .nav_con {
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        & .logo {
-            & a {
-                text-decoration: none;
-                font-weight: bold;
-            }
-        }
-
-        & ul {
-            display: flex;
-            list-style: none;
-
-            & li { 
-                margin: 0 35px;
-
-                & a {
-                    text-decoration: none;
-                }
-            }
-        }
-
-        & .button {
-            width: 100px;
-            height: 35px;
-            background-color: aliceblue;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 20px;
-            transition: 0.3s;
-            cursor: pointer;
-
-            &:hover {
-                box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.3);
-            }
-
-            & a {
-                text-decoration: none;
-                color: black;
-            }
-        }
-    }
 }
 
+nav a {
+    color: aliceblue;
+}
+
+/* Bars icon */
+.bars {
+    position: absolute;
+    top: 45px;
+    right: 20px;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+/* Container */
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+/* Navbar layout */
+.nav_con {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo a {
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: aliceblue;
+}
+
+/* Menu */
+.nav_con ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav_con ul li {
+    margin: 0 35px;
+    cursor: pointer;
+    color: aliceblue;
+    transition: opacity 0.2s ease;
+}
+
+.nav_con ul li:hover {
+    opacity: 0.8;
+}
+
+/* ===== DARK MODE BUTTON ===== */
+
+.theme_btn {
+    width: 38px;
+    height: 38px;
+
+    border: 2px solid white;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.theme_btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ================= MOBILE ================= */
+
 @media screen and (max-width: 480px) {
+
     .nav_con {
         flex-direction: column;
-        height: auto !important;
+        height: auto;
         margin: 50px 0;
-        align-items: start !important;
+        align-items: start;
         margin-left: 30px;
+    }
 
-        & ul {
-            display: none !important;
-        }
-
-        & ul, .button{
-            display: none !important;
-        }
+    .nav_con ul,
+    .theme_btn {
+        display: none;
     }
 
     .mobile_menu {
         list-style: none;
-
-        & li{
-            margin: 35px;
-
-            & a{
-                text-decoration: none;
-            }
-        }
     }
 
-    & .mobile_button{
-        width: 100px;
-            height: 35px;
-            background-color: aliceblue;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 20px;
-            transition: 0.3s;
-            cursor: pointer;
-            margin-left: 30px;
-            margin-bottom: 20px;
+    .mobile_menu li {
+        margin: 35px;
+        cursor: pointer;
+        color: aliceblue;
+    }
 
-            &:hover {
-                box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.3);
-            }
+    /* Mobile dark mode button */
 
-            & a {
-                text-decoration: none;
-                color: black;
-            }
+    .mobile_theme_btn {
+        width: 38px;
+        height: 38px;
+
+        border: 2px solid white;
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+        cursor: pointer;
+
+        margin-left: 30px;
+        margin-bottom: 20px;
+
+        transition: all 0.25s ease;
+    }
+
+    .mobile_theme_btn:hover {
+        background: rgba(255, 255, 255, 0.15);
     }
 }
 
+/* Hide mobile on desktop */
+
 @media screen and (min-width: 481px) {
-    .mobile_menu, .bars , .mobile_button{
+
+    .mobile_menu,
+    .bars,
+    .mobile_theme_btn {
         display: none;
     }
 }

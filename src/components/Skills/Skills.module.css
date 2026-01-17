@@ -1,43 +1,54 @@
 .skills_con {
-    height: 300px;
-    background-color: #0085ff;
+    background-color: #0085FF;
+    padding: 80px 0;
     text-align: center;
-    color: aliceblue;
-    overflow: hidden;
-
-    & .skills_title{
-        margin-top: 40px;
-    }
-    & .skills_list{
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        margin-top: 40px;
-
-        & li {
-            margin: 20px;
-
-            & svg {
-                width: 80px;
-                height: 80px;
-            }
-        }
-    }
+    transition: background 0.3s ease;
 }
 
+.skills_title {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.skills_list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.skills_list li {
+    font-size: 60px;
+    color: white;
+    margin: 15px 25px;
+    transition: transform 0.3s ease;
+}
+
+.skills_list li:hover {
+    transform: scale(1.15);
+}
+
+/* ===== DARK MODE ===== */
+
+:global(.dark-mode) .skills_con {
+    background: linear-gradient(135deg, #0b1220, #0f1b30);
+}
+
+:global(.dark-mode) .skills_title {
+    color: #ffffff;
+}
+
+:global(.dark-mode) .skills_list li {
+    color: #ffffff;
+}
+
+/* ===== MOBILE ===== */
+
 @media screen and (max-width: 480px) {
-    .skills_con {
-        height: auto;
 
-        & .skills_list {
-            flex-direction: column;
-            margin: 50px 0;
-
-
-            & li{
-                margin: 20px 0;
-            }
-        }
+    .skills_list li {
+        font-size: 48px;
+        margin: 15px;
     }
-    
 }

@@ -3,4 +3,19 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+
+  /* Smooth dark mode animation */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===== DARK MODE GLOBAL ===== */
+
+.dark-mode {
+  background-color: #0b1220;
+  color: white;
+}
+
+/* Navbar dark override */
+.dark-mode nav {
+  background-color: #050a14;
 }

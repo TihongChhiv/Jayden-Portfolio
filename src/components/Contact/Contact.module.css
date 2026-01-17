@@ -1,44 +1,55 @@
-.contact_wrapper{
-    height: 400px;
-    background-color: #0085ff;
-    color: aliceblue;
-    overflow: hidden;
-
-    & .contact_con{
-        max-width: 1170px;
-        margin: 50px auto 0;
-        display: flex;
-        justify-content: space-between;
-
-        & .contact_info {
-            width: 420px;
-
-            & h3{
-                font-size: 32px;
-                font-weight: bold;
-                margin-bottom: 20px;
-            }
-
-            & .contact_desc, .contact_address {
-                margin-bottom: 20px;
-
-            }
-        }
-    }
+.contact_wrapper {
+    background-color: #0085FF;
+    padding: 80px 0;
+    transition: background 0.3s ease;
 }
 
+.contact_con {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.contact_info h3 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.contact_desc {
+    color: white;
+    max-width: 500px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.contact_address {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.contact_info p {
+    color: white;
+    margin: 5px 0;
+}
+
+/* ===== DARK MODE CONTACT ===== */
+
+:global(.dark-mode) .contact_wrapper {
+    background: linear-gradient(135deg, #0b1220, #0f1b30);
+}
+
+:global(.dark-mode) .contact_info h3,
+:global(.dark-mode) .contact_info p,
+:global(.dark-mode) .contact_desc,
+:global(.dark-mode) .contact_address {
+    color: #ffffff;
+}
+
+/* Mobile */
+
 @media screen and (max-width: 480px) {
-    .contact_wrapper{
-        height: auto;
 
-        & .contact_con {
-            flex-direction: column;
-
-            & .contact_info {
-                width: 100%;
-                padding: 20px;
-            }
-        }
+    .contact_wrapper {
+        padding: 60px 20px;
     }
-    
 }
