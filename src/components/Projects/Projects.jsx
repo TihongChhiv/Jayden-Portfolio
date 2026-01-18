@@ -1,39 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Projects.module.css";
 
 /* ================= KARAOKE ================= */
 
-import karaokeHome from "../../assets/karaoke-booking/user_homepage.png";
 import karaokeLogin from "../../assets/karaoke-booking/login.png";
 import karaokeSignup from "../../assets/karaoke-booking/user_signup.png";
-import karaokeBooking from "../../assets/karaoke-booking/user-mybooking.png";
+import adminSignup from "../../assets/karaoke-booking/admin_signup.png";
+import karaokeHome from "../../assets/karaoke-booking/user_homepage.png";
 import karaokeHour from "../../assets/karaoke-booking/booking_hour.png";
+import karaokeBooking from "../../assets/karaoke-booking/user-mybooking.png";
 import adminHome from "../../assets/karaoke-booking/admin_homepage.png";
 import adminRoom from "../../assets/karaoke-booking/admin_room_manage.png";
 import adminCustomer from "../../assets/karaoke-booking/admin_customer_manage.png";
 import adminBooking from "../../assets/karaoke-booking/admin_booking_manage.png";
-import adminSignup from "../../assets/karaoke-booking/admin_signup.png";
 
 /* ================= ANONHUB ================= */
 
-import anonHome from "../../assets/AnonHub/homepage.png";
 import anonLogin from "../../assets/AnonHub/login.png";
 import anonSignup from "../../assets/AnonHub/signup.png";
-import anonPost from "../../assets/AnonHub/posting.png";
+import anonHome from "../../assets/AnonHub/homepage.png";
+import anonScroll from "../../assets/AnonHub/scrollpage.png";
 import anonDetail from "../../assets/AnonHub/postdetail.png";
+import anonPost from "../../assets/AnonHub/posting.png";
+import anonNoti from "../../assets/AnonHub/noti.png";
 import anonProfile from "../../assets/AnonHub/profilepage.png";
 import anonEdit from "../../assets/AnonHub/editprofile.png";
-import anonScroll from "../../assets/AnonHub/scrollpage.png";
-import anonNoti from "../../assets/AnonHub/noti.png";
 
 /* ================= MOVIE ================= */
 
 import movieHome from "../../assets/movie-booking/homepage.png";
-import movieCinema from "../../assets/movie-booking/cinemas.png";
-import movieFav from "../../assets/movie-booking/fav.png";
+import movieUpcoming from "../../assets/movie-booking/upcoming.png";
 import movieDetail from "../../assets/movie-booking/moviedetail.png";
 import movieTrailer from "../../assets/movie-booking/trailer.png";
-import movieUpcoming from "../../assets/movie-booking/upcoming.png";
+import movieCinema from "../../assets/movie-booking/cinemas.png";
+import movieFav from "../../assets/movie-booking/fav.png";
 
 /* ================= NORWORLD ================= */
 
@@ -46,17 +46,17 @@ import petHome from "../../assets/petshop/homepage.png";
 import petPage from "../../assets/petshop/petpage.png";
 import petContact from "../../assets/petshop/contact.png";
 
-/* ================= SNAKE & LADDER ================= */
+/* ================= SNAKE ================= */
 
 import snakeHome from "../../assets/Snake-And-Ladder/homepage.jpg";
-import snakeWin from "../../assets/Snake-And-Ladder/win.jpg";
-import snakeColor from "../../assets/Snake-And-Ladder/color.png";
-import snakeName from "../../assets/Snake-And-Ladder/name.png";
 import snakePlayer from "../../assets/Snake-And-Ladder/numplayer.jpg";
+import snakeName from "../../assets/Snake-And-Ladder/name.png";
+import snakeColor from "../../assets/Snake-And-Ladder/color.png";
+import snakeWin from "../../assets/Snake-And-Ladder/win.jpg";
 
 function Projects() {
   const [activeProject, setActiveProject] = useState(null);
-  const [previewImage, setPreviewImage] = useState(null);
+  const [previewIndex, setPreviewIndex] = useState(null);
 
   const projects = [
     {
@@ -68,22 +68,21 @@ function Projects() {
       desc: "Full-stack karaoke booking system with admin dashboard and real-time room management.",
       features: [
         "Room booking & scheduling",
-        "Admin management dashboard",
-        "JWT authentication system",
-        "Real-time booking updates",
-        "Responsive UI",
+        "Admin dashboard",
+        "JWT authentication",
+        "Real-time updates",
       ],
       images: [
-        karaokeHome,
         karaokeLogin,
         karaokeSignup,
-        karaokeBooking,
+        adminSignup,
+        karaokeHome,
         karaokeHour,
+        karaokeBooking,
         adminHome,
         adminRoom,
         adminCustomer,
         adminBooking,
-        adminSignup,
       ],
     },
 
@@ -93,24 +92,23 @@ function Projects() {
       cover: anonHome,
       repo: "https://github.com/TihongChhiv/Anony-Hub",
       tech: ["SwiftUI", "Firebase", "MVVM"],
-      desc: "Anonymous real-time posting app built with SwiftUI and Firebase backend.",
+      desc: "Anonymous posting mobile app with real-time sync.",
       features: [
-        "Anonymous posting system",
-        "Firebase authentication",
-        "Real-time Firestore sync",
-        "Profile management",
-        "Smooth animations",
+        "Anonymous posting",
+        "Firebase auth",
+        "Realtime database",
+        "Profile system",
       ],
       images: [
-        anonHome,
         anonLogin,
         anonSignup,
-        anonPost,
+        anonHome,
+        anonScroll,
         anonDetail,
+        anonPost,
+        anonNoti,
         anonProfile,
         anonEdit,
-        anonScroll,
-        anonNoti,
       ],
     },
 
@@ -120,20 +118,20 @@ function Projects() {
       cover: movieHome,
       repo: "https://github.com/TihongChhiv/Movie-Booking",
       tech: ["Swift", "UIKit", "REST API"],
-      desc: "Mobile movie browsing app with trailer playback and cinema listings.",
+      desc: "Movie browsing mobile app with trailer playback.",
       features: [
-        "Movie listing & detail view",
-        "Trailer playback integration",
+        "Movie listing",
+        "Trailer player",
         "Cinema browser",
-        "Favorites system",
+        "Favorites",
       ],
       images: [
         movieHome,
-        movieCinema,
-        movieFav,
+        movieUpcoming,
         movieDetail,
         movieTrailer,
-        movieUpcoming,
+        movieCinema,
+        movieFav,
       ],
     },
 
@@ -142,14 +140,9 @@ function Projects() {
       title: "NorWorld Website",
       cover: norHome,
       repo: "https://github.com/TihongChhiv/NORWORLD",
-      tech: ["React", "Vite", "MongoDB", "Full-stack (WIP)"],
-      desc: "Ongoing e-commerce website project with modern UI and backend integration plan.",
-      features: [
-        "Modern product UI",
-        "Responsive layout",
-        "MongoDB backend planning",
-        "Scalable architecture",
-      ],
+      tech: ["React", "Vite"],
+      desc: "E-commerce UI project.",
+      features: ["Responsive UI", "Modern design"],
       images: [norHome, norDetail],
     },
 
@@ -158,13 +151,9 @@ function Projects() {
       title: "PetShop Website",
       cover: petHome,
       repo: "https://github.com/TihongChhiv/petshop",
-      tech: ["React", "Vite", "Frontend"],
-      desc: "Frontend pet store website with clean layout and responsive design.",
-      features: [
-        "Pet listing UI",
-        "Responsive design",
-        "Component-based layout",
-      ],
+      tech: ["React", "Frontend"],
+      desc: "Pet shop frontend website.",
+      features: ["Listing UI", "Responsive layout"],
       images: [petHome, petPage, petContact],
     },
 
@@ -172,24 +161,45 @@ function Projects() {
       id: 6,
       title: "Snake & Ladder Java Game",
       cover: snakeHome,
-      tech: ["Java", "JavaFX", "OOP", "MVC"],
-      desc: "Desktop Snake & Ladder game built using JavaFX with object-oriented design.",
-      features: [
-        "Two-player mode",
-        "Dice rolling system",
-        "Snake & ladder mechanics",
-        "Graphical UI with JavaFX",
-        "Win detection system",
-      ],
+      tech: ["Java", "JavaFX"],
+      desc: "Desktop Snake & Ladder game.",
+      features: ["Dice system", "Multiplayer", "GUI"],
       images: [
         snakeHome,
-        snakeWin,
-        snakeColor,
-        snakeName,
         snakePlayer,
+        snakeName,
+        snakeColor,
+        snakeWin,
       ],
     },
   ];
+
+  /* KEYBOARD SWIPE */
+
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (previewIndex === null) return;
+
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "Escape") setPreviewIndex(null);
+    };
+
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [previewIndex]);
+
+  const nextImage = () => {
+    setPreviewIndex((prev) =>
+      prev === activeProject.images.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const prevImage = () => {
+    setPreviewIndex((prev) =>
+      prev === 0 ? activeProject.images.length - 1 : prev - 1
+    );
+  };
 
   return (
     <div id="project" className={styles.proj_con}>
@@ -211,7 +221,7 @@ function Projects() {
         ))}
       </div>
 
-      {/* ================= MODAL ================= */}
+      {/* MODAL */}
 
       {activeProject && (
         <div
@@ -229,7 +239,8 @@ function Projects() {
               ✕
             </button>
 
-            {/* VIEW CODE BUTTON */}
+            {/* VIEW CODE RIGHT */}
+
             {activeProject.repo && (
               <a
                 href={activeProject.repo}
@@ -262,8 +273,8 @@ function Projects() {
                 <img
                   key={i}
                   src={img}
-                  alt="project"
-                  onClick={() => setPreviewImage(img)}
+                  alt="preview"
+                  onClick={() => setPreviewIndex(i)}
                 />
               ))}
             </div>
@@ -271,12 +282,12 @@ function Projects() {
         </div>
       )}
 
-      {/* ================= IMAGE PREVIEW ================= */}
+      {/* IMAGE PREVIEW WITH SWIPE */}
 
-      {previewImage && (
+      {previewIndex !== null && (
         <div
           className={styles.preview_overlay}
-          onClick={() => setPreviewImage(null)}
+          onClick={() => setPreviewIndex(null)}
         >
           <div
             className={styles.preview_box}
@@ -284,12 +295,15 @@ function Projects() {
           >
             <button
               className={styles.preview_close}
-              onClick={() => setPreviewImage(null)}
+              onClick={() => setPreviewIndex(null)}
             >
               ✕
             </button>
 
-            <img src={previewImage} alt="preview" />
+            <img
+              src={activeProject.images[previewIndex]}
+              alt="preview"
+            />
           </div>
         </div>
       )}

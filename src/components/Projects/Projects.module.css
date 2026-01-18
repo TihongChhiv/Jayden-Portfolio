@@ -94,6 +94,8 @@
   position: relative;
 }
 
+/* CLOSE BUTTON */
+
 .close_btn {
   position: absolute;
   top: 18px;
@@ -107,25 +109,29 @@
   cursor: pointer;
 }
 
-/* ===== VIEW CODE BUTTON ===== */
+/* ================= VIEW CODE BUTTON ================= */
 
 .repo_btn {
   position: absolute;
   top: 18px;
   right: 70px;
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+  background: #2563eb;
   color: white;
-  padding: 8px 14px;
-  border-radius: 18px;
-  font-size: 13px;
+
+  padding: 8px 16px;
+  border-radius: 20px;
+
   text-decoration: none;
+  font-size: 13px;
   font-weight: 500;
+
   transition: 0.25s ease;
 }
 
 .repo_btn:hover {
+  background: #1e40af;
   transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
 }
 
 /* TEXT */
@@ -161,7 +167,7 @@
   margin-bottom: 6px;
 }
 
-/* IMAGES */
+/* IMAGE GRID */
 
 .modal_images {
   margin-top: 20px;
@@ -181,7 +187,7 @@
   transform: scale(1.04);
 }
 
-/* PREVIEW */
+/* ================= PREVIEW MODAL ================= */
 
 .preview_overlay {
   position: fixed;
@@ -197,12 +203,23 @@
   max-width: 90%;
   max-height: 90%;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* FIX BIG IMAGE ISSUE */
+
 .preview_box img {
-  width: 100%;
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
   border-radius: 12px;
 }
+
+/* CLOSE PREVIEW */
 
 .preview_close {
   position: absolute;
@@ -212,12 +229,12 @@
   border: none;
   color: white;
   font-size: 22px;
+  cursor: pointer;
 }
 
 /* MOBILE */
 
 @media screen and (max-width: 480px) {
-
   .proj_list {
     grid-template-columns: 1fr;
     padding: 20px;
@@ -234,8 +251,8 @@
   }
 
   .repo_btn {
-    position: static;
-    display: inline-block;
-    margin: 10px 0 15px;
+    right: 60px;
+    font-size: 12px;
+    padding: 6px 12px;
   }
 }
