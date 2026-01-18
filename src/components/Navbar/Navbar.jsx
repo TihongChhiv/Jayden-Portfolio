@@ -20,7 +20,6 @@ function Navbar() {
     setToggle(false)
   }
 
-  // Dark mode toggle
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark-mode")
@@ -42,11 +41,10 @@ function Navbar() {
           <ul>
             <li onClick={() => scrollTo("about")}>About</li>
             <li onClick={() => scrollTo("skills")}>Skill</li>
-            <li onClick={() => scrollTo("project")}>Project</li>
+            <li onClick={() => scrollTo("projects")}>Project</li>
             <li onClick={() => scrollTo("contact")}>Contact</li>
           </ul>
 
-          {/* DARK MODE */}
           <div
             className={styles.theme_btn}
             onClick={() => setDarkMode(!darkMode)}
@@ -56,7 +54,6 @@ function Navbar() {
 
         </div>
 
-        {/* MOBILE MENU */}
         <FaBars className={styles.bars} onClick={handleToggle} />
 
         {isToggled && (
@@ -64,11 +61,10 @@ function Navbar() {
             <ul className={styles.mobile_menu}>
               <li onClick={() => scrollTo("about")}>About</li>
               <li onClick={() => scrollTo("skills")}>Skill</li>
-              <li onClick={() => scrollTo("project")}>Project</li>
+              <li onClick={() => scrollTo("projects")}>Project</li>
               <li onClick={() => scrollTo("contact")}>Contact</li>
             </ul>
 
-            {/* MOBILE DARK MODE */}
             <div
               className={styles.mobile_theme_btn}
               onClick={() => setDarkMode(!darkMode)}
