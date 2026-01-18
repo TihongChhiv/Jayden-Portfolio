@@ -14,6 +14,7 @@ function Contact() {
             I'm actively seeking software engineering internship opportunities and eager to gain real-world experience while continuously improving my technical skills.
           </p>
 
+          <br />
           <p className={styles.contact_address}>
             Bangkok, Thailand
           </p>

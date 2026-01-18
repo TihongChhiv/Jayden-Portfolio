@@ -13,11 +13,14 @@ function Navbar() {
   }
 
   const scrollTo = (id) => {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' })
+    const section = document.getElementById(id)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' })
+    }
     setToggle(false)
   }
 
-  // Apply dark mode to body
+  // Dark mode toggle
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark-mode")
@@ -33,17 +36,17 @@ function Navbar() {
         <div className={styles.nav_con}>
 
           <div className={styles.logo}>
-            <a onClick={() => scrollTo("about")}>JAYDEN</a>
+            <span onClick={() => scrollTo("about")}>JAYDEN</span>
           </div>
 
           <ul>
             <li onClick={() => scrollTo("about")}>About</li>
             <li onClick={() => scrollTo("skills")}>Skill</li>
-            <li onClick={() => scrollTo("projects")}>Project</li>
+            <li onClick={() => scrollTo("project")}>Project</li>
             <li onClick={() => scrollTo("contact")}>Contact</li>
           </ul>
 
-          {/* DARK MODE BUTTON */}
+          {/* DARK MODE */}
           <div
             className={styles.theme_btn}
             onClick={() => setDarkMode(!darkMode)}
@@ -61,7 +64,7 @@ function Navbar() {
             <ul className={styles.mobile_menu}>
               <li onClick={() => scrollTo("about")}>About</li>
               <li onClick={() => scrollTo("skills")}>Skill</li>
-              <li onClick={() => scrollTo("projects")}>Project</li>
+              <li onClick={() => scrollTo("project")}>Project</li>
               <li onClick={() => scrollTo("contact")}>Contact</li>
             </ul>
 

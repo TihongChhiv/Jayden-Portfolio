@@ -35,9 +35,38 @@ function Hero() {
             </p>
 
             <ul className={styles.hero_social}>
-              <li><a href="#"><FaGithub /></a></li>
-              <li><a href="#"><FaLinkedin /></a></li>
-              <li><a href="#"><FaInstagram /></a></li>
+              <li>
+                <a
+                  href="https://github.com/TihongChhiv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
+                  <FaGithub />
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/jay-den-1469b336a/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin />
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="https://www.instagram.com/jayden.8th/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram />
+                </a>
+              </li>
             </ul>
 
           </div>

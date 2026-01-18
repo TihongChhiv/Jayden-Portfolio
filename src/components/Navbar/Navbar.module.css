@@ -4,10 +4,6 @@ nav {
     position: relative;
 }
 
-nav a {
-    color: aliceblue;
-}
-
 /* Bars icon */
 .bars {
     position: absolute;
@@ -31,13 +27,16 @@ nav a {
     align-items: center;
 }
 
-/* Logo */
-.logo a {
-    text-decoration: none;
-    font-weight: bold;
+/* ===== LOGO (SPAN FIX) ===== */
+
+.logo span {
+    color: #ffffff !important;
+    font-weight: 500;   
+    font-size: 17px;   
     cursor: pointer;
-    color: aliceblue;
+    user-select: none;
 }
+
 
 /* Menu */
 .nav_con ul {
@@ -142,4 +141,10 @@ nav a {
     .mobile_theme_btn {
         display: none;
     }
+}
+
+/* ===== FORCE WHITE IN DARK MODE ===== */
+
+:global(.dark-mode) .logo span {
+    color: #ffffff !important;
 }
