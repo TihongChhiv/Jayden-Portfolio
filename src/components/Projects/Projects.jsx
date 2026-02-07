@@ -38,10 +38,11 @@ import movieFav from "../../assets/movie-booking/fav.png";
 import norHome from "../../assets/norworld/homepage.png";
 import norDetail from "../../assets/norworld/detail page.png";
 
-// Petshop
-import petHome from "../../assets/petshop/homepage.png";
-import petPage from "../../assets/petshop/petpage.png";
-import petContact from "../../assets/petshop/contact.png";
+// TikTok backend project (NEW)
+import tiktokHome from "../../assets/Tiktok/homepage.jpg";
+import tiktokAPI from "../../assets/Tiktok/api.png";
+import tiktokArchi from "../../assets/Tiktok/archi.png";
+import tiktokTG from "../../assets/Tiktok/tg.png";
 
 // Snake
 import snakeHome from "../../assets/Snake-And-Ladder/homepage.jpg";
@@ -150,24 +151,29 @@ function Projects() {
       images: [norHome, norDetail]
     },
 
+    /* ===== REPLACED PETSHOP PROJECT ===== */
+
     {
       id: 5,
-      title: "PetShop Website",
-      cover: petHome,
-      repo: "https://github.com/TihongChhiv/petshop",
-      tech: ["React", "Vite"],
+      title: "Video Streaming Platform",
+      cover: tiktokHome,
+      repo: "https://github.com/TihongChhiv/TikTok-Backend",
+      tech: ["React", "Node.js", "AWS EC2", "S3", "RDS", "ALB"],
       features: [
-        "Pet listing UI",
-        "Responsive design",
-        "Component-based layout",
+        "Full-stack TikTok-style video streaming system",
+        "AWS cloud deployment (EC2, S3, RDS)",
+        "Load balancing & scalable backend architecture",
+        "REST API integration with frontend",
+        "Video upload & streaming workflow",
       ],
-      images: [petHome, petPage, petContact]
+      images: [tiktokHome, tiktokArchi, tiktokAPI, tiktokTG]
     },
 
     {
       id: 6,
       title: "Snake & Ladder Game",
       cover: snakeHome,
+      repo: "https://github.com/TihongChhiv/SnakeAndLadder",
       tech: ["Java", "JavaFX", "OOP"],
       features: [
         "Two-player mode",
@@ -200,12 +206,9 @@ function Projects() {
     );
   };
 
-  /* KEYBOARD SUPPORT */
-
   useEffect(() => {
     const handleKey = (e) => {
       if (previewIndex === null) return;
-
       if (e.key === "ArrowRight") nextImage();
       if (e.key === "ArrowLeft") prevImage();
       if (e.key === "Escape") setPreviewIndex(null);
@@ -214,8 +217,6 @@ function Projects() {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [previewIndex, activeProject]);
-
-  /* TOUCH / TRACKPAD SWIPE */
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
@@ -227,14 +228,12 @@ function Projects() {
 
   const handleTouchEnd = () => {
     const diff = touchStartX.current - touchEndX.current;
-
     if (diff > 60) nextImage();
     if (diff < -60) prevImage();
   };
 
   return (
     <div id="projects" className={styles.proj_con}>
-
       <h3 className={styles.proj_title}>Project</h3>
 
       <div className={styles.proj_list}>
@@ -253,10 +252,9 @@ function Projects() {
         ))}
       </div>
 
-      {/* ================= DETAIL MODAL ================= */}
+      {/* ===== MODAL + PREVIEW unchanged ===== */}
 
       {activeProject && (
-
         <div
           className={styles.modal_overlay}
           onClick={() => {
@@ -264,12 +262,10 @@ function Projects() {
             setPreviewIndex(null);
           }}
         >
-
           <div
             className={styles.modal_box}
             onClick={(e) => e.stopPropagation()}
           >
-
             <button
               className={styles.close_btn}
               onClick={() => {
@@ -315,20 +311,15 @@ function Projects() {
                 />
               ))}
             </div>
-
           </div>
         </div>
       )}
 
-      {/* ================= IMAGE PREVIEW SLIDER ================= */}
-
       {previewIndex !== null && (
-
         <div
           className={styles.preview_overlay}
           onClick={() => setPreviewIndex(null)}
         >
-
           <div
             className={styles.preview_box}
             onClick={(e) => e.stopPropagation()}
@@ -336,25 +327,18 @@ function Projects() {
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-
             <button
               className={styles.preview_close}
               onClick={() => setPreviewIndex(null)}
             >
               ✕
-
             </button>
 
             <button className={styles.arrow_left} onClick={prevImage}>‹</button>
 
-            <img
-              src={activeProject.images[previewIndex]}
-              alt="preview"
-            />
+            <img src={activeProject.images[previewIndex]} alt="preview" />
 
             <button className={styles.arrow_right} onClick={nextImage}>›</button>
-
-            {/* ===== DOT INDICATOR (FIXED) ===== */}
 
             <div className={styles.dots}>
               {activeProject.images.map((_, i) => (
@@ -367,12 +351,9 @@ function Projects() {
                 />
               ))}
             </div>
-
           </div>
-
         </div>
       )}
-
     </div>
   );
 }
