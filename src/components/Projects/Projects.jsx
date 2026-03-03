@@ -15,6 +15,13 @@ import adminCustomer from "../../assets/karaoke-booking/admin_customer_manage.pn
 import adminBooking from "../../assets/karaoke-booking/admin_booking_manage.png";
 import adminSignup from "../../assets/karaoke-booking/admin_signup.png";
 
+// AI Customer Support (NEW)
+import aiFirst from "../../assets/AI Customer/first.png";
+import aiAdmin from "../../assets/AI Customer/admin.png";
+import aiProblem from "../../assets/AI Customer/problem.png";
+import aiSubmit from "../../assets/AI Customer/submit.png";
+import aiSubmited from "../../assets/AI Customer/submited.png";
+
 // AnonHub
 import anonLogin from "../../assets/AnonHub/login.png";
 import anonSignup from "../../assets/AnonHub/signup.png";
@@ -38,7 +45,7 @@ import movieFav from "../../assets/movie-booking/fav.png";
 import norHome from "../../assets/norworld/homepage.png";
 import norDetail from "../../assets/norworld/detail page.png";
 
-// TikTok backend project (NEW)
+// TikTok backend
 import tiktokHome from "../../assets/Tiktok/homepage.jpg";
 import tiktokAPI from "../../assets/Tiktok/api.png";
 import tiktokArchi from "../../assets/Tiktok/archi.png";
@@ -90,6 +97,28 @@ function Projects() {
 
     {
       id: 2,
+      title: "AI Customer Support Assistant",
+      cover: aiFirst,
+      repo: "PUT_YOUR_GITHUB_LINK",
+      tech: ["React", "FastAPI", "Python", "OpenAI API"],
+      features: [
+        "Two-role web app for customers and support agents",
+        "Customers submit tickets via a clean form with success confirmation",
+        "AI automatically analyzes each ticket on submission",
+        "Admin dashboard shows live ticket list with urgency badges",
+        "Each ticket includes AI summary, urgency level, and suggested reply",
+      ],
+      images: [
+        aiFirst,
+        aiProblem,
+        aiSubmit,
+        aiSubmited,
+        aiAdmin,
+      ]
+    },
+
+    {
+      id: 3,
       title: "AnonHub iOS App",
       cover: anonHome,
       repo: "https://github.com/TihongChhiv/Anony-Hub",
@@ -115,7 +144,7 @@ function Projects() {
     },
 
     {
-      id: 3,
+      id: 4,
       title: "Movie Booking App",
       cover: movieHome,
       repo: "https://github.com/TihongChhiv/Movie-Booking",
@@ -137,7 +166,7 @@ function Projects() {
     },
 
     {
-      id: 4,
+      id: 5,
       title: "NorWorld Website (On-going)",
       cover: norHome,
       repo: "https://github.com/TihongChhiv/NORWORLD",
@@ -151,10 +180,8 @@ function Projects() {
       images: [norHome, norDetail]
     },
 
-    /* ===== REPLACED PETSHOP PROJECT ===== */
-
     {
-      id: 5,
+      id: 6,
       title: "Video Streaming Platform",
       cover: tiktokHome,
       repo: "https://github.com/TihongChhiv/TikTok-Backend",
@@ -170,7 +197,7 @@ function Projects() {
     },
 
     {
-      id: 6,
+      id: 7,
       title: "Snake & Ladder Game",
       cover: snakeHome,
       repo: "https://github.com/TihongChhiv/SnakeAndLadder",
@@ -191,8 +218,6 @@ function Projects() {
       ]
     }
   ];
-
-  /* ================= SLIDER LOGIC ================= */
 
   const nextImage = () => {
     setPreviewIndex(prev =>
@@ -251,8 +276,6 @@ function Projects() {
           </div>
         ))}
       </div>
-
-      {/* ===== MODAL + PREVIEW unchanged ===== */}
 
       {activeProject && (
         <div
@@ -335,9 +358,7 @@ function Projects() {
             </button>
 
             <button className={styles.arrow_left} onClick={prevImage}>‹</button>
-
             <img src={activeProject.images[previewIndex]} alt="preview" />
-
             <button className={styles.arrow_right} onClick={nextImage}>›</button>
 
             <div className={styles.dots}>
